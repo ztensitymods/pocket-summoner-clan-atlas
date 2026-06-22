@@ -59,7 +59,7 @@ function highlightName(name,q){
   const trimmed = q.trim();
   if(!trimmed) return safeName;
   const escapedQuery = regexEsc(esc(trimmed));
-  return safeName.replace(new RegExp(escapedQuery,'ig'), match=>`<span class="search-highlight">${match}</span>`);
+  return safeName.replace(new RegExp(escapedQuery,'i'), match=>`<span class="search-highlight">${match}</span>`);
 }
 function letterOf(name){let ch=(name[0]||'#').toUpperCase(); return /[A-Z]/.test(ch)?ch:'#';}
 function renderFeatured(){document.getElementById('featured').innerHTML=featured.map((c,i)=>`<div class="feature-card"><h3>${i+1}. ${esc(c.name)}</h3><div>${count(c)} known names</div><span class="badge">Roster highlight</span></div>`).join('')}
